@@ -1,6 +1,6 @@
 # 🎀 "Mimi" Gacha Cost Tracker Web Dashboard
 
-เว็บแดชบอร์ดสรุปค่าใช้จ่ายในการเติมเกมกาชาแสนน่ารักในธีมน้อง **"เมม" (Memosprite จาก Honkai: Star Rail)** พัฒนาด้วย Next.js (App Router) เชื่อมต่อฐานข้อมูลโดยตรงกับ Google Sheets API และขับเคลื่อนด้วยระบบสแกนสลิปอัจฉริยะ Google Cloud Vision OCR 
+เว็บแดชบอร์ดสรุปค่าใช้จ่ายในการเติมเกมกาชาแสนน่ารักในธีมน้อง **"Mem" (Memosprite จาก Honkai: Star Rail)** พัฒนาด้วย Next.js (App Router) เชื่อมต่อฐานข้อมูลโดยตรงกับ Google Sheets API และขับเคลื่อนด้วยระบบสแกนสลิปอัจฉริยะ Google Cloud Vision OCR 
 
 ---
 
@@ -73,18 +73,6 @@ ALLOWED_USER_ID=your_personal_discord_user_id
 npm run dev
 ```
 เปิดบราวเซอร์ไปที่ [http://localhost:3000](http://localhost:3000) เพื่อเริ่มใช้งานมิว~
-
----
-
-## 🌐 การนำขึ้น Live Production (Vercel Deployment)
-
-เนื่องจากโปรเจกต์นี้ทำงานกับกุญแจสำคัญและตัวแปรสภาพแวดล้อม เพื่อความปลอดภัยบนระบบคลาวด์เราจะไม่นำไฟล์ `google-credentials.json` อัปโหลดขึ้น Git แต่จะใช้วิธีเก็บในสภาพแวดล้อม (Environment Variables) ของ Vercel แทน:
-
-1.  คัดลอกข้อความทั้งหมดภายในไฟล์ `google-credentials.json` (ที่เป็นกุญแจ JSON ทั้งหมด)
-2.  ไปที่ Vercel Dashboard -> Project Settings -> **Environment Variables**
-3.  เพิ่มตัวแปรใหม่ชื่อ **`GOOGLE_CREDENTIALS_JSON`** และวางค่า JSON ที่ก๊อปปี้มาลงไปในช่อง Value
-4.  เพิ่มตัวแปรอื่น ๆ จากไฟล์ `.env` ขึ้นไปบน Vercel (ปรับแก้ตัวแปร `NEXTAUTH_URL` ให้ตรงกับ URL หน้าเว็บจริงของคุณบน Vercel เช่น `https://mimi-gacha.vercel.app`)
-5.  สั่ง Deploy โปรเจกต์ได้ทันที
 
 ---
 
