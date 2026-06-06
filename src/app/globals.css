@@ -1,0 +1,218 @@
+@import "tailwindcss";
+
+@theme {
+  --font-fredoka: var(--font-fredoka), var(--font-ibm-plex-sans-thai), sans-serif;
+  --font-sans: var(--font-jakarta-sans), var(--font-ibm-plex-sans-thai), sans-serif;
+  
+  --color-bg-base: var(--bg-base);
+  --color-text-main: var(--text-main);
+  --color-text-muted: var(--text-muted);
+  
+  --color-cosmic-pink: var(--accent-pink);
+  --color-cosmic-purple: var(--accent-purple);
+  --color-cosmic-mint: var(--accent-mint);
+  --color-cosmic-gold: var(--accent-gold);
+  
+  --color-card-bg: var(--card-bg);
+  --color-input-bg: var(--input-bg);
+  --color-input-border: var(--input-border);
+  
+  --color-bubble-bg: var(--bubble-bg);
+  --color-bubble-text: var(--bubble-text);
+  --color-bubble-border: var(--bubble-border);
+  --color-bubble-accent: var(--bubble-accent);
+  
+  --color-dropdown-bg: var(--dropdown-bg);
+  --color-dropdown-text: var(--dropdown-text);
+  --color-dropdown-border: var(--dropdown-border);
+  --color-dropdown-hover: var(--dropdown-hover);
+  --color-dropdown-divider: var(--dropdown-divider);
+}
+
+:root {
+  --bg-base: #090A1A;
+  --text-main: #FFFFFF;
+  --text-muted: #A2A5C9;
+  --accent-pink: #FF75B5;
+  --accent-purple: #7012FF;
+  --accent-mint: #00F5D4;
+  --accent-gold: #F39C12;
+  --card-bg: rgba(15, 16, 35, 0.45);
+  --input-bg: rgba(20, 21, 46, 0.6);
+  --input-border: rgba(112, 18, 255, 0.3);
+  --shadow-color: rgba(112, 18, 255, 0.15);
+  --bubble-bg: rgba(15, 23, 42, 0.9);
+  --bubble-text: #FFFFFF;
+  --bubble-border: rgba(255, 117, 181, 0.3);
+  --bubble-accent: #FF75B5;
+  --dropdown-bg: rgba(15, 16, 35, 0.95);
+  --dropdown-text: #FFFFFF;
+  --dropdown-hover: rgba(255, 117, 181, 0.15);
+  --dropdown-border: rgba(112, 18, 255, 0.35);
+  --dropdown-divider: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dawn"] {
+  --bg-base: #F5F7FB;
+  --text-main: #1A2536;
+  --text-muted: #5A6D85;
+  --accent-pink: #FF8DA1;
+  --accent-purple: #909399;
+  --accent-mint: #3B82F6;
+  --accent-gold: #D4AF37;
+  --card-bg: rgba(255, 255, 255, 0.65);
+  --input-bg: rgba(255, 255, 255, 0.8);
+  --input-border: rgba(212, 175, 55, 0.25);
+  --shadow-color: rgba(212, 175, 55, 0.1);
+  --bubble-bg: rgba(255, 255, 255, 0.95);
+  --bubble-text: #1A2536;
+  --bubble-border: rgba(212, 175, 55, 0.3);
+  --bubble-accent: #D4AF37;
+  --dropdown-bg: rgba(255, 255, 255, 0.98);
+  --dropdown-text: #1A2536;
+  --dropdown-hover: rgba(212, 175, 55, 0.15);
+  --dropdown-border: rgba(212, 175, 55, 0.3);
+  --dropdown-divider: rgba(212, 175, 55, 0.1);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent-purple);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-pink);
+}
+
+/* Background Texture Overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  content: "";
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Custom Backdrop blur border gradients */
+.glass-panel {
+  background-color: var(--card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dawn"] .glass-panel {
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.06);
+}
+
+/* Background Gradients */
+.app-container {
+  background-color: var(--bg-base);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  color: var(--text-main);
+  transition: background-color 0.5s ease, color 0.3s ease;
+}
+
+.bg-nebula-mesh {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background-image: 
+    radial-gradient(at 10% 20%, rgba(255, 117, 181, 0.08) 0px, transparent 50%),
+    radial-gradient(at 90% 10%, rgba(112, 18, 255, 0.12) 0px, transparent 50%),
+    radial-gradient(at 50% 80%, rgba(0, 245, 212, 0.07) 0px, transparent 50%),
+    radial-gradient(at 80% 90%, rgba(112, 18, 255, 0.08) 0px, transparent 50%);
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.bg-dawn-sky {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background-image: linear-gradient(180deg, #D9EAFD 0%, #FEF9E7 55%, #FDE2E4 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+[data-theme="dawn"] .bg-nebula-mesh {
+  opacity: 0;
+}
+
+[data-theme="dawn"] .bg-dawn-sky {
+  opacity: 1;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes laser {
+  0% { top: 0%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes cloud-float {
+  0% { transform: translateX(-5%); }
+  50% { transform: translateX(5%); }
+  100% { transform: translateX(-5%); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-laser {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--accent-pink), var(--accent-mint), var(--accent-pink), transparent);
+  box-shadow: 0 0 10px var(--accent-mint);
+  animation: laser 2.5s linear infinite;
+  pointer-events: none;
+}
+
+.animate-clouds {
+  animation: cloud-float 20s ease-in-out infinite;
+}
+
+/* Staggered Reveals */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
