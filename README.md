@@ -34,12 +34,12 @@
 
 ---
 
-## 🚀 เริ่มต้นใช้งานในเครื่องโลคอล (Local Development)
+## 🚀 เริ่มต้นใช้งานใน local (Local Development)
 
 ### 1. ติดตั้ง Dependencies
 เปิด Terminal ในโฟลเดอร์โปรเจกต์แล้วรันคำสั่ง:
 ```bash
-npm install
+bun install
 ```
 
 ### 2. ตั้งค่า Environment Variables (`.env`)
@@ -70,9 +70,9 @@ ALLOWED_USER_ID=your_personal_discord_user_id
 ### 4. รันโปรเจกต์แบบ Local
 รันเซิร์ฟเวอร์สำหรับทดสอบในเครื่อง:
 ```bash
-npm run dev
+bun dev
 ```
-เปิดบราวเซอร์ไปที่ [http://localhost:3000](http://localhost:3000) เพื่อเริ่มใช้งานมิว~
+เปิดบราวเซอร์ไปที่ [http://localhost:3000](http://localhost:3000) เพื่อเริ่มใช้งาน
 
 ---
 

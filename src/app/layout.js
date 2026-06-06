@@ -35,6 +35,7 @@ export default function RootLayout({ children }) {
     <html
       lang="th"
       className={`${fredoka.variable} ${plusJakartaSans.variable} ${ibmPlexSansThai.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col font-sans">
         <Providers>{children}</Providers>
