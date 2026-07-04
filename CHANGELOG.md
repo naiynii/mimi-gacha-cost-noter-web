@@ -7,6 +7,12 @@ All notable changes to the "Mem" Gacha Cost Tracker Discord Bot will be document
 
 ---
 
+## [3.0.2] - 2026-07-04
+
+### Changed
+- **Assets Folder Re-structure (Vercel Fix):** ลบ Symbolic Link `public/assets` และย้ายโฟลเดอร์รูปภาพ `/assets` จากระดับรูทเข้ามาอยู่ใน [public/assets](file:///Users/rinlily/Documents/codingdump/mimi-gacha-cost-tracker-web/public/assets) โดยตรง เพื่อแก้ไขปัญหา Vercel Deployment Failed ที่ไม่รองรับการประมวลผลหรือดึงภาพผ่าน Symlink ที่ชี้ออกไปนอกโฟลเดอร์หลักของโปรเจกต์มิว~
+- **Guidelines Update:** อัปเดตแนวทางปฏิบัติตนและกฎของบอทใน [gemini.md](file:///Users/rinlily/Documents/codingdump/mimi-gacha-cost-tracker-web/gemini.md) ในเรื่องของการเก็บ Assets และข้อบังคับการบันทึกประวัติการพัฒนาลงใน Changelog เสมอมิว~
+
 ## [3.0.1] - 2026-06-06
 
 ### Added
