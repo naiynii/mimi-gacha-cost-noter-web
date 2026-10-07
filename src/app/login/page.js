@@ -19,6 +19,8 @@ function LoginContent() {
     const error = searchParams.get('error');
     if (error === 'AccessDenied' || error === 'Signin') {
       setErrorMsg('❌ ขอโทษด้วยนะมิว! คลังความทรงจำนี้เปิดให้เฉพาะผู้บุกเบิกเจ้าของบอทเข้าถึงได้เท่านั้นมิว~');
+    } else if (error) {
+      setErrorMsg(`⚠️ เมมเชื่อมต่อกับ Discord ไม่สำเร็จมิว~ ลองใหม่อีกครั้งนะ (รหัสข้อผิดพลาด: ${error})`);
     }
   }, [status, router, searchParams]);
 
@@ -70,7 +72,7 @@ function LoginContent() {
         )}
 
         <button
-          onClick={() => signIn('discord')}
+          onClick={() => signIn('discord', { callbackUrl: '/' })}
           className="w-full font-fredoka py-4 px-6 rounded-2xl bg-gradient-to-r from-pink-400 to-purple-600 text-white font-bold text-sm tracking-wide flex items-center justify-center gap-3 hover:from-pink-500 hover:to-purple-700 shadow-[0_4px_20px_rgba(112,18,255,0.3)] hover:shadow-[0_4px_25px_rgba(255,117,181,0.4)] transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
         >
           <LogIn size={18} />

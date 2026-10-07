@@ -7,6 +7,15 @@ All notable changes to the "Mem" Gacha Cost Tracker Discord Bot will be document
 
 ---
 
+## [3.0.3] - 2026-10-07
+
+### Fixed
+- **Discord Login วนกลับหน้า Login (OAuthCallback):** Discord เริ่มส่งพารามิเตอร์ `iss` กลับมาใน OAuth callback (RFC 9207) ทำให้ `openid-client` ของ NextAuth v4 โยน error `issuer must be configured on the issuer` แก้โดยกำหนด `issuer: "https://discord.com"` ใน `DiscordProvider` ที่ [route.js](src/app/api/auth/[...nextauth]/route.js)
+
+### Changed
+- **หน้า Login แสดงรหัส error ทุกกรณี:** เดิมแสดงข้อความเฉพาะ `AccessDenied` และ `Signin` ทำให้ error อื่นดูเหมือนเด้งกลับเงียบ ๆ ตอนนี้ [login/page.js](src/app/login/page.js) แสดงข้อความพร้อมรหัส error ที่ได้รับ
+- **`callbackUrl` หลัง Login:** `signIn('discord')` ส่ง `callbackUrl: '/'` เพื่อเข้าแดชบอร์ดโดยตรง ไม่ต้องกลับมาที่ `/login` ก่อน
+
 ## [3.0.2] - 2026-07-04
 
 ### Changed
